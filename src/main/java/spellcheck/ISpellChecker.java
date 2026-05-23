@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface ISpellChecker {
 
-    List<String> check(String text);
+    List<SpellError> check(String text);
 }

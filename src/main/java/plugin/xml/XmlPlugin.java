@@ -50,6 +50,7 @@ public class XmlPlugin implements IEditorPlugin {
         int startLine = 0;
         if (!lines.isEmpty() && lines.get(0).equals("# log")) {
             startLine = 1;
+            editor.setHasLogHeader(true);
         }
 
         StringBuilder xmlContent = new StringBuilder();
@@ -144,6 +145,9 @@ public class XmlPlugin implements IEditorPlugin {
     public IEditor createEmptyEditor(String filePath, IFileSystem fs, boolean withLog) {
         XmlEditor editor = new XmlEditor(filePath, fs);
         editor.initializeEmpty();
+        if (withLog) {
+            editor.setHasLogHeader(true);
+        }
         return editor;
     }
 

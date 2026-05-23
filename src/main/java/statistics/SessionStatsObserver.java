@@ -69,10 +69,16 @@ public class SessionStatsObserver implements IWorkspaceObserver {
         long totalHours = totalMinutes / 60;
         long remainingMinutes = totalMinutes % 60;
         if (totalHours < 24) {
+            if (remainingMinutes == 0) {
+                return totalHours + "\u5C0F\u65F6";
+            }
             return totalHours + "\u5C0F\u65F6" + remainingMinutes + "\u5206\u949F";
         }
         long days = totalHours / 24;
         long remainingHours = totalHours % 24;
+        if (remainingHours == 0) {
+            return days + "\u5929";
+        }
         return days + "\u5929" + remainingHours + "\u5C0F\u65F6";
     }
 }

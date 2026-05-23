@@ -125,7 +125,7 @@ public class CLIApplication {
                             handleEdit(params);
                             break;
                         case "editor-list":
-                            handleEditorList();
+                            handleEditorList(params);
                             break;
                         case "dir-tree":
                             handleDirTree(params);
@@ -171,7 +171,7 @@ public class CLIApplication {
         System.out.println("  init <file> [with-log]");
         System.out.println("  close [file]");
         System.out.println("  edit <file>");
-        System.out.println("  editor-list");
+        System.out.println("  editor-list [tree]");
         System.out.println("  dir-tree [path]");
         System.out.println("  undo");
         System.out.println("  redo");
@@ -284,12 +284,20 @@ public class CLIApplication {
         System.out.println("\u5DF2\u5207\u6362\u5230\u6587\u4EF6: " + params.get(1));
     }
 
-    private static void handleEditorList() {
+    private static void handleEditorList(List<String> params) {
         List<String> openedFiles = workspace.getOpenedFiles();
         if (openedFiles.isEmpty()) {
             System.out.println("\u6CA1\u6709\u6253\u5F00\u7684\u6587\u4EF6\u3002");
             return;
         }
+        if (params.contains("tree")) {
+            handleEditorListTree(openedFiles);
+        } else {
+            handleEditorListPlain(openedFiles);
+        }
+    }
+
+    private static void handleEditorListPlain(List<String> openedFiles) {
         String activeFile = workspace.getActiveFilePath();
         for (String file : openedFiles) {
             IEditor editor = workspace.getEditor(file);
@@ -299,6 +307,153 @@ public class CLIApplication {
             String line = decorator.getFormattedInfoLine(file, isActive, isModified);
             System.out.println(line);
         }
+    }
+
+    private static class EditorTreeNode {
+        String name;
+        String fullPath;
+        java.util.List<EditorTreeNode> children = new java.util.ArrayList<>();
+        boolean isDirectory;
+
+        EditorTreeNode(String name, String fullPath, boolean isDirectory) {
+            this.name = name;
+            this.fullPath = fullPath;
+            this.isDirectory = isDirectory;
+        }
+    }
+
+    private static void handleEditorListTree(List<String> openedFiles) {
+        String commonPrefix = findCommonDirPrefix(openedFiles);
+        EditorTreeNode root = new EditorTreeNode(commonPrefix, null, true);
+        for (String filePath : openedFiles) {
+            String relative = commonPrefix.isEmpty() ? filePath
+                    : filePath.startsWith(commonPrefix) ? filePath.substring(commonPrefix.length()) : filePath;
+            if (relative.startsWith("/")) {
+                relative = relative.substring(1);
+            }
+            String[] parts = relative.split("/");
+            EditorTreeNode current = root;
+            for (int i = 0; i < parts.length - 1; i++) {
+                current = findOrCreateDirChild(current, parts[i]);
+            }
+            String fileName = parts[parts.length - 1];
+            EditorTreeNode fileNode = new EditorTreeNode(fileName, filePath, false);
+            current.children.add(fileNode);
+        }
+        sortTreeNode(root);
+        printEditorTree(root, "", workspace.getActiveFilePath());
+    }
+
+    private static String findCommonDirPrefix(List<String> paths) {
+        if (paths.isEmpty()) return "";
+        String[][] splitPaths = new String[paths.size()][];
+        for (int i = 0; i < paths.size(); i++) {
+            splitPaths[i] = paths.get(i).split("/");
+        }
+        StringBuilder prefix = new StringBuilder();
+        int minLen = Integer.MAX_VALUE;
+        for (String[] parts : splitPaths) {
+            if (parts.length < minLen) minLen = parts.length;
+        }
+        for (int i = 0; i < minLen - 1; i++) {
+            String part = splitPaths[0][i];
+            boolean allSame = true;
+            for (int j = 1; j < splitPaths.length; j++) {
+                if (!splitPaths[j][i].equals(part)) {
+                    allSame = false;
+                    break;
+                }
+            }
+            if (allSame) {
+                if (prefix.length() > 0) prefix.append("/");
+                prefix.append(part);
+            } else {
+                break;
+            }
+        }
+        return prefix.toString();
+    }
+
+    private static EditorTreeNode findOrCreateDirChild(EditorTreeNode parent, String name) {
+        for (EditorTreeNode child : parent.children) {
+            if (child.isDirectory && child.name.equals(name)) {
+                return child;
+            }
+        }
+        EditorTreeNode newDir = new EditorTreeNode(name, null, true);
+        parent.children.add(newDir);
+        return newDir;
+    }
+
+    private static void sortTreeNode(EditorTreeNode node) {
+        node.children.sort((a, b) -> {
+            if (a.isDirectory != b.isDirectory) {
+                return a.isDirectory ? -1 : 1;
+            }
+            return a.name.compareTo(b.name);
+        });
+        for (EditorTreeNode child : node.children) {
+            sortTreeNode(child);
+        }
+    }
+
+    private static void printEditorTree(EditorTreeNode node, String prefix, String activeFilePath) {
+        if (node.name != null && !node.name.isEmpty()) {
+            System.out.println(node.name + "/");
+        }
+        for (int i = 0; i < node.children.size(); i++) {
+            EditorTreeNode child = node.children.get(i);
+            boolean isLast = (i == node.children.size() - 1);
+            String connector = isLast ? "\u2514\u2500\u2500 " : "\u251C\u2500\u2500 ";
+            String newPrefix = prefix + (isLast ? "    " : "\u2502   ");
+
+            if (child.isDirectory) {
+                System.out.println(prefix + connector + child.name + "/");
+                printEditorTreeChildren(child, newPrefix, activeFilePath);
+            } else {
+                String line = buildFileLeafLine(child, prefix + connector, activeFilePath);
+                System.out.println(line);
+            }
+        }
+    }
+
+    private static void printEditorTreeChildren(EditorTreeNode node, String prefix, String activeFilePath) {
+        for (int i = 0; i < node.children.size(); i++) {
+            EditorTreeNode child = node.children.get(i);
+            boolean isLast = (i == node.children.size() - 1);
+            String connector = isLast ? "\u2514\u2500\u2500 " : "\u251C\u2500\u2500 ";
+            String newPrefix = prefix + (isLast ? "    " : "\u2502   ");
+
+            if (child.isDirectory) {
+                System.out.println(prefix + connector + child.name + "/");
+                printEditorTreeChildren(child, newPrefix, activeFilePath);
+            } else {
+                String line = buildFileLeafLine(child, prefix + connector, activeFilePath);
+                System.out.println(line);
+            }
+        }
+    }
+
+    private static String buildFileLeafLine(EditorTreeNode fileNode, String treePrefix, String activeFilePath) {
+        boolean isActive = fileNode.fullPath != null && fileNode.fullPath.equals(activeFilePath);
+        IEditor editor = workspace.getEditor(fileNode.fullPath);
+        boolean isModified = editor != null && editor.isModified();
+
+        StatsEditorListDecorator decorator = new StatsEditorListDecorator(editor, statsObserver);
+        long durationMs = statsObserver.getDuration(editor);
+        String durationStr = statsObserver.format(durationMs);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(treePrefix);
+        if (isActive) {
+            sb.append("* ");
+        }
+        sb.append(fileNode.name);
+        if (isModified) {
+            sb.append(" [modified]");
+        }
+        sb.append(" (").append(durationStr).append(")");
+        return sb.toString();
     }
 
     private static void handleDirTree(List<String> params) {

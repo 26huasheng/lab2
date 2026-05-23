@@ -1,0 +1,9 @@
+PluginIsolationTest.class
+AdapterTreeTest.class
+XmlEditorCommandTest.class
+CommandStateTest.class
+ComprehensiveIntegrationTest.class
+TextEditorBoundaryTest.class
+ObserverDecoupleTest.class
+SpellCheckAdapterTest.class
+SessionStatsObserverTest.class

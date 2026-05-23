@@ -17,6 +17,8 @@ public class XmlEditor extends AbstractEditor {
 
     private Map<String, IXmlNode> idMap = new HashMap<>();
 
+    private boolean hasLogHeader = false;
+
     public XmlEditor() {
     }
 
@@ -47,6 +49,10 @@ public class XmlEditor extends AbstractEditor {
         if (root != null) {
             indexSubtree(root);
         }
+    }
+
+    public void setHasLogHeader(boolean hasLogHeader) {
+        this.hasLogHeader = hasLogHeader;
     }
 
     private void rebuildIdMap() {
@@ -228,6 +234,9 @@ public class XmlEditor extends AbstractEditor {
     @Override
     protected List<String> serialize() {
         List<String> lines = new ArrayList<>();
+        if (hasLogHeader) {
+            lines.add("# log");
+        }
         lines.add("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         if (root != null) {
             serializeElement(root, 0, lines);

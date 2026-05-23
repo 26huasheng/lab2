@@ -41,6 +41,7 @@ D:\Erdong\大二\OOT\lab1\lab2\src\main\java\plugin\xml\XmlPlugin.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\ISpellChecker.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\MockSpellCheckerAdapter.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\SpellCheckCommand.java
+D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\SpellError.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\statistics\SessionStatsObserver.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\statistics\StatsEditorListDecorator.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\workspace\observer\IWorkspaceObserver.java

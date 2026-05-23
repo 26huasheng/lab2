@@ -1,64 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="PluginIsolationTest" time="0.0" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="PluginIsolationTest" time="0.001" tests="5" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="25"/>
+    <property name="java.specification.version" value="26"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="GBK"/>
     <property name="java.class.path" value="D:\Erdong\大二\OOT\lab1\lab2\target\test-classes;D:\Erdong\大二\OOT\lab1\lab2\target\classes;C:\Users\erdon\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\erdon\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
-    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="user.timezone" value="Asia/Shanghai"/>
     <property name="os.name" value="Windows 11"/>
-    <property name="java.vm.specification.version" value="25"/>
+    <property name="java.vm.specification.version" value="26"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CN"/>
-    <property name="sun.boot.library.path" value="C:\Users\erdon\AppData\Roaming\Trae CN\User\globalStorage\pleiades.java-extension-pack-jdk\java\25\bin"/>
-    <property name="sun.java.command" value="C:\Users\erdon\AppData\Local\Temp\surefire11278645176275280892\surefirebooter-20260506153813773_3.jar C:\Users\erdon\AppData\Local\Temp\surefire11278645176275280892 2026-05-06T15-38-13_581-jvmRun1 surefire-20260506153813773_1tmp surefire_0-20260506153813773_2tmp"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-26\bin"/>
+    <property name="sun.java.command" value="C:\Users\erdon\AppData\Local\Temp\surefire14217860572669500406\surefirebooter-20260523122031836_3.jar C:\Users\erdon\AppData\Local\Temp\surefire14217860572669500406 2026-05-23T12-20-31_726-jvmRun1 surefire-20260523122031836_1tmp surefire_0-20260523122031836_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\Erdong\大二\OOT\lab1\lab2\target\test-classes;D:\Erdong\大二\OOT\lab1\lab2\target\classes;C:\Users\erdon\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\erdon\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\erdon"/>
     <property name="user.language" value="zh"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2026-04-21"/>
-    <property name="java.home" value="C:\Users\erdon\AppData\Roaming\Trae CN\User\globalStorage\pleiades.java-extension-pack-jdk\java\25"/>
+    <property name="java.version.date" value="2026-03-17"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-26"/>
     <property name="file.separator" value="\"/>
     <property name="basedir" value="D:\Erdong\大二\OOT\lab1\lab2"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\erdon\AppData\Local\Temp\surefire11278645176275280892\surefirebooter-20260506153813773_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\erdon\AppData\Local\Temp\surefire14217860572669500406\surefirebooter-20260523122031836_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="25.0.3+9-LTS"/>
+    <property name="java.runtime.version" value="26+35-2893"/>
     <property name="user.name" value="erdon"/>
     <property name="stdout.encoding" value="GBK"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vendor.version" value="Temurin-25.0.3+9"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="localRepository" value="C:\Users\erdon\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\erdon\AppData\Local\Temp\"/>
-    <property name="java.version" value="25.0.3"/>
+    <property name="java.version" value="26"/>
     <property name="user.dir" value="D:\Erdong\大二\OOT\lab1\lab2"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="GBK"/>
-    <property name="java.library.path" value="C:\Users\erdon\AppData\Roaming\Trae CN\User\globalStorage\pleiades.java-extension-pack-jdk\java\25\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\\Users\\erdon\\.trae-cn\\tools\\trae-gopls\\current;c:\\Users\\erdon\\.trae-cn\\sdks\\workspaces\\49110235\\versions\\node\\current;c:\\Users\\erdon\\.trae-cn\\sdks\\versions\\node\\current;C:\Users\erdon\AppData\Roaming\Trae CN\User\globalStorage\pleiades.java-extension-pack-jdk\gradle\latest\bin;C:\Users\erdon\AppData\Roaming\Trae CN\User\globalStorage\pleiades.java-extension-pack-jdk\maven\latest\bin;c:\Users\erdon\.trae-cn\tools\trae-gopls\current;c:\Users\erdon\.trae-cn\sdks\workspaces\49110235\versions\node\current;c:\Users\erdon\.trae-cn\sdks\versions\node\current;C:\Users\erdon\AppData\Roaming\Trae CN\User\globalStorage\pleiades.java-extension-pack-jdk\java\25\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\libnvvp;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Program Files\Calibre2\;C:\Program Files\NVIDIA Corporation\Nsight Compute 2024.3.2\;C:\x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev1\mingw64\bin;C:\cmake-4.0.0-rc2-windows-x86_64\cmake-4.0.0-rc2-windows-x86_64\bin;C:\Windows\system32\downlevel;C:\Program Files\Git\cmd;C:\Program Files\Git\cmd;D:\codes\tool\vcpkg\vcpkg;C:\Program Files\PowerShell\7;C:\x86_64-13.1.0-release-win32-seh-ucrt-rt_v11-rev1\mingw64\bin;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Users\erdon\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\erdon\AppData\Local\Programs\Python\Python39\;C:\Users\erdon\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\ffmpeg-2025-01-08-git-251de1791e-full_build\bin;C:\Users\erdon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Prince\engine\bin;C:\Users\erdon\.npm-global;C:\Program Files\Tesseract-OCR;C:\Users\erdon\AppData\Local\Programs\Python\Python311;C:\Program Files (x86)\ZeroTier\One\;C:\Program Files\PowerShell\7\;C:\Program Files\MATLAB\R2025b\bin;C:\Program Files\Java\jdk-26\bin;C:\Program Files\apache-maven-3.9.15-bin\apache-maven-3.9.15\bin;C:\Users\erdon\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\erdon\AppData\Local\Programs\Python\Python311\;C:\Users\erdon\scoop\shims;C:\Users\erdon\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\erdon\AppData\Local\Programs\Python\Python39\;C:\Users\erdon\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\ffmpeg-2025-01-08-git-251de1791e-full_build\bin;C:\Users\erdon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\erdon\AppData\Roaming\npm;C:\Users\erdon\AppData\Local\Microsoft\WinGet\Links;C:\Program Files\PostgreSQL\18\bin;C:\Users\erdon\.npm-global;c:\Users\erdon\.trae-cn\extensions\vscjava.vscode-java-debug-0.59.0-universal\bundled\scripts\noConfigScripts;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-26\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\erdon\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\erdon\bin;C:\Users\erdon\AppData\Local\Programs\Python\Python311\Scripts;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\VMware\VMware Workstation\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\libnvvp;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files\dotnet;C:\Program Files\Calibre2;C:\Program Files\NVIDIA Corporation\Nsight Compute 2024.3.2;C:\x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev1\mingw64\bin;C:\cmake-4.0.0-rc2-windows-x86_64\cmake-4.0.0-rc2-windows-x86_64\bin;C:\Windows\system32\downlevel;C:\Program Files\Git\cmd;C:\Program Files\Git\cmd;D:\codes\tool\vcpkg\vcpkg;C:\Program Files\PowerShell\7;C:\x86_64-13.1.0-release-win32-seh-ucrt-rt_v11-rev1\mingw64\bin;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Users\erdon\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\erdon\AppData\Local\Programs\Python\Python39;C:\Users\erdon\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\ffmpeg-2025-01-08-git-251de1791e-full_build\bin;C:\Users\erdon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Prince\engine\bin;C:\Users\erdon\.npm-global;C:\Program Files\Tesseract-OCR;C:\Users\erdon\AppData\Local\Programs\Python\Python311;C:\Program Files (x86)\ZeroTier\One;C:\Program Files\PowerShell\7;C:\Program Files\MATLAB\R2025b\bin;C:\Program Files\Java\jdk-26\bin;C:\Program Files\apache-maven-3.9.15-bin\apache-maven-3.9.15\bin;C:\Users\erdon\.local\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\erdon\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\erdon\AppData\Local\Programs\Python\Python311;C:\Users\erdon\scoop\shims;C:\Users\erdon\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\erdon\AppData\Local\Programs\Python\Python39;C:\Users\erdon\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\ffmpeg-2025-01-08-git-251de1791e-full_build\bin;C:\Users\erdon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\erdon\AppData\Roaming\npm;C:\Users\erdon\AppData\Local\Microsoft\WinGet\Links;C:\Program Files\PostgreSQL\18\bin;C:\Users\erdon\.npm-global;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="GBK"/>
-    <property name="java.vendor" value="Eclipse Adoptium"/>
-    <property name="java.vm.version" value="25.0.3+9-LTS"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="26+35-2893"/>
     <property name="stdin.encoding" value="GBK"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="69.0"/>
+    <property name="java.class.version" value="70.0"/>
   </properties>
   <testcase name="testFileTypesRejectForeignCommands" classname="PluginIsolationTest" time="0.0"/>
   <testcase name="testTextRejectsXmlCommand" classname="PluginIsolationTest" time="0.0"/>

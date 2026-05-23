@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import spellcheck.ISpellChecker;
 import spellcheck.MockSpellCheckerAdapter;
+import spellcheck.SpellError;
 
 public class SpellCheckAdapterTest {
 
@@ -19,46 +20,46 @@ public class SpellCheckAdapterTest {
 
     @Test
     public void testDetectConsecutiveConsonants() {
-        List<String> results = checker.check("abcdfg");
-        assertFalse("\u5E94\u68C0\u6D4B\u5230\u62FC\u5199\u9519\u8BEF", results.isEmpty());
-        assertTrue(results.get(0).contains("abcdfg"));
+        List<SpellError> results = checker.check("abcdfg");
+        assertFalse("应检测到拼写错误", results.isEmpty());
+        assertTrue(results.get(0).getWord().contains("abcdfg"));
     }
 
     @Test
     public void testValidWordPasses() {
-        List<String> results = checker.check("hello");
-        assertTrue("\u6B63\u786E\u5355\u8BCD\u5E94\u901A\u8FC7", results.isEmpty());
+        List<SpellError> results = checker.check("hello");
+        assertTrue("正确单词应通过", results.isEmpty());
     }
 
     @Test
     public void testEmptyTextReturnsEmpty() {
-        List<String> results = checker.check("");
+        List<SpellError> results = checker.check("");
         assertTrue(results.isEmpty());
     }
 
     @Test
     public void testNullTextReturnsEmpty() {
-        List<String> results = checker.check(null);
+        List<SpellError> results = checker.check(null);
         assertTrue(results.isEmpty());
     }
 
     @Test
     public void testDetectSpellingErrorInPhrase() {
-        List<String> results = checker.check("This is a bcdfg word");
-        assertFalse("\u5E94\u68C0\u6D4B\u5230\u62FC\u5199\u9519\u8BEF", results.isEmpty());
+        List<SpellError> results = checker.check("This is a bcdfg word");
+        assertFalse("应检测到拼写错误", results.isEmpty());
         boolean foundBadWord = false;
-        for (String r : results) {
-            if (r.contains("bcdfg")) {
+        for (SpellError r : results) {
+            if (r.getWord().contains("bcdfg")) {
                 foundBadWord = true;
                 break;
             }
         }
-        assertTrue("\u5E94\u5305\u542B bcdfg \u9519\u8BEF\u63D0\u793A", foundBadWord);
+        assertTrue("应包含 bcdfg 错误提示", foundBadWord);
     }
 
     @Test
     public void testMultipleErrors() {
-        List<String> results = checker.check("abcdfg xyzpqr");
+        List<SpellError> results = checker.check("abcdfg xyzpqr");
         assertEquals(2, results.size());
     }
 }
