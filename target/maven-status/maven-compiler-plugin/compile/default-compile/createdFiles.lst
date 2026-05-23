@@ -36,6 +36,7 @@ plugin\xml\command\XmlTreeCommand.class
 core\editor\AbstractEditor.class
 plugin\xml\XmlEditor.class
 plugin\xml\command\XmlInsertBeforeCommand.class
+spellcheck\LanguageToolAdapter.class
 plugin\xml\core\IXmlNode.class
 log\FileLogger.class
 log\ICommandObserver.class

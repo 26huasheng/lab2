@@ -74,11 +74,9 @@ public class XmlPlugin implements IEditorPlugin {
             if (line.isEmpty()) {
                 continue;
             }
-
             if (line.startsWith("<?")) {
                 continue;
             }
-
             if (line.startsWith("</")) {
                 if (!elementStack.isEmpty()) {
                     elementStack.pop();
@@ -117,7 +115,7 @@ public class XmlPlugin implements IEditorPlugin {
 
                 IXmlNode parent = elementStack.isEmpty() ? null : elementStack.peek();
                 XmlElement element = new XmlElement(tagName, id, parent);
-                if (textContent != null) {
+                if (textContent != null && !textContent.isEmpty()) {
                     element.setText(textContent);
                 }
                 for (java.util.Map.Entry<String, String> attrEntry : attrs.entrySet()) {
@@ -127,17 +125,26 @@ public class XmlPlugin implements IEditorPlugin {
                 if (parent != null) {
                     parent.addChild(element);
                 }
-
                 if (root == null) {
                     root = element;
                 }
-
                 if (!line.contains("/>") && !line.contains("</")) {
                     elementStack.push(element);
                 }
+            } else {
+                // 核心修复：当前行没有匹配到标签，说明它是纯文本行
+                if (!elementStack.isEmpty()) {
+                    IXmlNode current = elementStack.peek();
+                    String existingText = current.getText();
+                    if (existingText == null) {
+                        existingText = "";
+                    } else if (!existingText.isEmpty()) {
+                        existingText += " ";
+                    }
+                    current.setText(existingText + line);
+                }
             }
         }
-
         return root;
     }
 

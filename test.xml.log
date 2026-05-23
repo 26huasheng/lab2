@@ -1,0 +1,4 @@
+session start at 20260523 13:47:29
+20260523 13:47:29 append-child book book1 root ""
+20260523 13:47:34 append-child title title1 book1 "I lvoe coding"
+20260523 13:47:39 edit-id book1 bk001

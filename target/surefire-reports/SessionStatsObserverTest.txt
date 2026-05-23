@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: SessionStatsObserverTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.482 s -- in SessionStatsObserverTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.494 s -- in SessionStatsObserverTest

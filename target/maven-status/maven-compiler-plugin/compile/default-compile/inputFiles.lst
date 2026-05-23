@@ -39,6 +39,7 @@ D:\Erdong\大二\OOT\lab1\lab2\src\main\java\plugin\xml\core\XmlElement.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\plugin\xml\XmlEditor.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\plugin\xml\XmlPlugin.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\ISpellChecker.java
+D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\LanguageToolAdapter.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\MockSpellCheckerAdapter.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\SpellCheckCommand.java
 D:\Erdong\大二\OOT\lab1\lab2\src\main\java\spellcheck\SpellError.java

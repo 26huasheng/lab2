@@ -1,0 +1,9 @@
+# log
+<?xml version="1.0" encoding="UTF-8"?>
+<root id="root">
+    <book id="bk001">
+        <title id="title1">
+            I lvoe coding
+        </title>
+    </book>
+</root>

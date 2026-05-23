@@ -18,7 +18,8 @@ import log.FileLogger;
 import plugin.sudoku.SudokuPlugin;
 import plugin.text.TextPlugin;
 import plugin.xml.XmlPlugin;
-import spellcheck.MockSpellCheckerAdapter;
+import spellcheck.ISpellChecker;
+import spellcheck.LanguageToolAdapter;
 import spellcheck.SpellCheckCommand;
 import statistics.SessionStatsObserver;
 import statistics.StatsEditorListDecorator;
@@ -32,7 +33,7 @@ public class CLIApplication {
 
     private static SessionStatsObserver statsObserver;
 
-    private static MockSpellCheckerAdapter spellChecker;
+    private static ISpellChecker spellChecker;
 
     private static java.util.Map<String, FileLogger> fileLoggers = new java.util.HashMap<>();
 
@@ -71,7 +72,8 @@ public class CLIApplication {
 
         statsObserver = new SessionStatsObserver();
         workspace.attachWorkspaceObserver(statsObserver);
-        spellChecker = new MockSpellCheckerAdapter();
+        // 使用真实的第三方拼写检查库 LanguageTool（切换为 MockSpellCheckerAdapter 即可回归测试模式）
+        spellChecker = new LanguageToolAdapter();
 
         Scanner scanner = new Scanner(System.in);
         Pattern paramPattern = Pattern.compile("([^\\s\"']+)|\"([^\"]*)\"|'([^']*)'");
